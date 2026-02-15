@@ -1288,8 +1288,7 @@ html += `
     // Mark that she's submitted once this session
     sessionStorage.setItem('hasSubmitted', 'true');
     
-    // FORMSPREE COMMENTED OUT FOR TESTING
-    /*
+    // Send to Formspree
     fetch('https://formspree.io/f/xkovrjeo', {
         method: 'POST',
         headers: {
@@ -1303,7 +1302,6 @@ html += `
     })
     .then(response => {
         if (response.ok) {
-    */
     
     // Update packing list title
     const cityNameShort = selectedCity.charAt(0).toUpperCase() + selectedCity.slice(1);
@@ -1338,7 +1336,6 @@ submitBtn.style.cursor = 'not-allowed';
     // Show packing list
     document.getElementById('packingList').classList.add('show');
     
-    /*
         } else {
             alert('Oops, something went wrong! Try again or just text me your choice 💕');
         }
@@ -1346,7 +1343,6 @@ submitBtn.style.cursor = 'not-allowed';
     .catch(error => {
         alert('Oops, something went wrong! Try again or just text me your choice 💕');
     });
-    */
 }
 
 function closeConfirmation() {
