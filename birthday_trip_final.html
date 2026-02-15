@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Trip ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Great+Vibes&family=Shadows+Into+Light&display=swap" rel="stylesheet">    <style>
+       @font-face {
+    font-family: 'BeautifulNightClub';
+src: url('Beautiful Night Club.otf') format('opentype');}
+@font-face {
+    font-family: 'ValentineDelight';
+    src: url('Valentine Delight.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'MyHeart';
+    src: url('myheart.otf') format('opentype');
+}
+       * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-weight: 300;
+            background: linear-gradient(135deg, #ffb6c1 0%, #ff69b4 50%, #dc143c 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            padding: 30px 20px;
+        }
+        
+        .header h1 {
+    font-size: 3.2em;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+    letter-spacing: 1px;
+    font-weight: 400;
+    font-family: 'BeautifulNightClub', cursive;
+}
+        
+        .intro-box {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+.intro-box h2 {
+    color: #ff69b4;
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'ValentineDelight', cursive;
+    font-weight: 400;
+}
+        
+        .intro-box p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 300;
+        }
+        
+        .whats-included {
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe5ec 100%);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .whats-included h3 {
+            color: #dc143c;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+        
+        .whats-included p {
+            color: #666;
+            line-height: 2;
+            font-size: 1.05em;
+            font-weight: 300;
+        }
+        
+        .gift-emoji {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: white;
+            font-size: 2em;
+            margin: 40px 0 30px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            font-weight: 400;
+        }
+        
+        .options-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+        
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .card.selected {
+            border: 6px solid #ffB6C1;
+            transform: scale(1.02);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+        
+        .card-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .weekend-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.95);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85em;
+            color: #dc143c;
+        }
+        
+        .select-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #dc143c;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9em;
+            display: none;
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .card.selected .select-badge {
+            display: block;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card h2 {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+        
+        .card h3 {
+            color: #ff69b4;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        
+        .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .highlight-tag {
+            background: #fff0f5;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            color: #dc143c;
+            border: 1px solid #ffd6e7;
+            font-weight: 400;
+        }
+        
+        .vibe-section {
+            border-top: 2px solid #f0f0f0;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+        
+        .vibe-section h4 {
+            font-size: 0.9em;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .vibe-item {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: start;
+        }
+        
+        .vibe-item span {
+            margin-right: 8px;
+        }
+        
+        .card-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .details-btn, .budget-btn {
+            background: #ff69b4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            flex: 1;
+            min-width: 120px;
+        }
+        
+        .details-btn:hover, .budget-btn:hover {
+            background: #ff1493;
+        }
+        
+        .budget-btn {
+            background: #ff85a2;
+        }
+        
+        .budget-btn:hover {
+            background: #ff69b4;
+        }
+        
+        .selection-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-top: 40px;
+        }
+        
+        .selection-section h3 {
+            color: #ff69b4;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            font-weight: 600;
+        }
+        
+        .selection-section p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            font-weight: 300;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #ff69b4 0%, #dc143c 100%);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: 700;
+            box-shadow: 0 5px 20px rgba(220, 20, 60, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: none;
+        }
+        
+        .submit-btn.show {
+            display: inline-block;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(220, 20, 60, 0.5);
+        }
+        
+        .note {
+            color: #999;
+            font-size: 0.9em;
+            font-style: italic;
+            margin-top: 20px;
+            font-weight: 300;
+        }
+        
+        .packing-list {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: none;
+        }
+        
+        .packing-list.show {
+            display: block;
+        }
+        
+        .packing-list h3 {
+            color: #ff69b4;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .city-packing {
+    display: block;
+    width: 100%;
+}
+        
+        .packing-category {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #fff5f7;
+            border-radius: 15px;
+        }
+        
+        .packing-category h4 {
+            color: #dc143c;
+            font-size: 1.3em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+        
+        .packing-category ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .packing-category li {
+            color: #666;
+            padding: 8px 0;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        
+        .packing-category li:before {
+            content: "✓ ";
+            color: #ff69b4;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .intro-box {
+                padding: 25px;
+            }
+            
+            .card-buttons {
+                flex-direction: column;
+            }
+            
+            .details-btn, .budget-btn {
+                width: 100%;
+            }
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2em;
+            cursor: pointer;
+            color: #999;
+            background: none;
+            border: none;
+        }
+        
+        .close-modal:hover {
+            color: #333;
+        }
+        
+        .modal h2 {
+            color: #ff69b4;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .modal-section {
+            margin-bottom: 25px;
+        }
+        
+        .modal-section h4 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        .modal-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .modal-section li {
+            padding: 8px 0;
+            color: #666;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        
+       .modal-section li:before {
+    content: "✨ ";
+    margin-right: 8px;
+}
+
+.modal-section.experiences li:before {
+    content: "🎁 ";
+}
+
+.modal-section.inspo li:before {
+    content: "📸 ";
+}
+        
+        .modal-section a {
+            color: #ff69b4;
+            text-decoration: none;
+            font-weight: 400;
+        }
+        
+        .modal-section a:hover {
+            text-decoration: underline;
+        }
+        
+        .budget-info {
+            background: #fff5f7;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 15px;
+        }
+        
+        .budget-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ffe5ec;
+        }
+        
+        .budget-item:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            color: #dc143c;
+        }
+        
+        .budget-item span:first-child {
+            color: #666;
+            font-weight: 300;
+        }
+        
+        .budget-item span:last-child {
+            color: #dc143c;
+            font-weight: 600;
+        }
+        .confirmation-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.confirmation-modal.active {
+    display: flex;
+}
+
+.confirmation-content {
+    background: white;
+    border-radius: 30px;
+    padding: 50px 40px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(220, 20, 60, 0.4);
+}
+
+.confirmation-content h2 {
+    color: #ff69b4;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.confirmation-content p {
+    color: #666;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.confirmation-content .city-name {
+    color: #dc143c;
+    font-weight: 700;
+    font-size: 1.3em;
+}
+
+.confirmation-btn {
+    background: linear-gradient(135deg, #ff69b4 0%, #dc143c 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 700;
+    box-shadow: 0 5px 20px rgba(220, 20, 60, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.confirmation-btn:hover {
+    transform: translateY(-3px);
+}
+
+.heart {
+    position: absolute;
+    font-size: 30px;
+    animation: floatHeart 1.5s ease-out forwards;
+    pointer-events: none;
+    z-index: 3000;
+}
+
+@keyframes floatHeart {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(1.5);
+    }
+}
+.indecisive-toast {
+    position: fixed;
+    top: 20px;
+    right: -400px;
+    background: white;
+    padding: 20px 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 1500;
+    max-width: 350px;
+    transition: right 0.4s ease;
+    border-left: 5px solid #ff69b4;
+}
+
+.indecisive-toast.show {
+    right: 20px;
+}
+
+.indecisive-toast p {
+    color: #333;
+    margin: 0;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+.indecisive-toast strong {
+    color: #dc143c;
+    font-weight: 700;
+}
+
+.close-toast {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 1.8em;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-toast:hover {
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .indecisive-toast {
+        right: -100%;
+        max-width: calc(100% - 40px);
+        left: auto;
+    }
+    
+    .indecisive-toast.show {
+        right: 20px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+     
+        <div class="header">
+            <h1>🎂 Happy birthday, whore! 🎂</h1>
+        </div>
+        <p class="indecisive-text" id="indecisiveText" style="display: none; text-align: center; color: white; font-size: 1.1em; margin-top: -20px; margin-bottom: 20px; font-weight: 300;">Oh, so you indecisive? FYI - You picked <span id="previousCity" style="font-weight: 600;"></span> last time! What's it gonna be nooooow?</p>        
+
+        
+        <div class="intro-box">
+            <h2>Your South American Escape Awaits</h2>
+<p>
+    I can't make your birthday trip so I'm bringing the trip to you. Your time to show off the <em style="white-space: nowrap;">body-ody-ody</em> on some South American beaches, eat some bomb food, and get some thirst traps for the hoes. Pick your vibe, boo.
+    <br><br>
+    <span style="font-size: 0.7em; font-style: italic;">Timing can be flexible - Memorial Day and Labor Day work best but we can make whatever happen!</span>
+</p>            </p>
+            
+            <div class="whats-included">
+                <div class="gift-emoji">💝</div>
+                <h3>What's Included</h3>
+                <p>
+                    ✈️ Round-trip flight from H-Town<br>
+                    🍽️ One special dinner or experience of your choice<br>
+                    💕 All my natural hatin' vibes
+                </p>
+            </div>
+        </div>
+        
+<h2 class="section-title">Choose Your Destination</h2>
+        <div class="options-grid">
+            <!-- CARTAGENA -->
+            <div class="card" data-city="cartagena">
+                <div class="select-badge">✓ Selected</div>
+                <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('https://i.imgur.com/chTp73I.jpeg');">
+                    <div class="weekend-badge">Memorial Day</div>
+                </div>
+                <div class="card-content">
+                    <h2>Cartagena</h2>
+                    <h3>Colombia</h3>
+                    <p>Colonial streets meet Caribbean beaches. Yuh, it's Instagram-ready.</p>
+                    
+                    <div class="highlights">
+                        <span class="highlight-tag">Perfect Weather</span>
+                        <span class="highlight-tag">Beach Clubs</span>
+                        <span class="highlight-tag">Old Town Magic</span>
+                    </div>
+                    
+                    <div class="vibe-section">
+                        <h4>The Vibe</h4>
+                        <div class="vibe-item">
+                            <span>🍽️</span>
+                            <div>Coastal Colombian cuisine, fresh ceviche, rooftop dining</div>
+                        </div>
+                        <div class="vibe-item">
+                            <span>📸</span>
+                            <div>Colorful colonial architecture, island beaches, sunset views</div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-buttons">
+                        <button class="details-btn" onclick="showDetails('cartagena', event)">Details</button>
+                        <button class="budget-btn" onclick="showBudget('cartagena', event)">Budget</button>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- MEDELLIN -->
+            <div class="card" data-city="medellin">
+                <div class="select-badge">✓ Selected</div>
+                <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('https://i.imgur.com/icORhDC.jpeg');">
+                    <div class="weekend-badge">Flexible Dates</div>
+                </div>
+                <div class="card-content">
+                    <h2>Medellín</h2>
+                    <h3>Colombia</h3>
+                    <p>Mountain city with fuh'eva spring weather and rooftop pool scene.</p>
+                    
+                    <div class="highlights">
+                        <span class="highlight-tag">70s-80s Year-Round</span>
+                        <span class="highlight-tag">Mountain Views</span>
+                        <span class="highlight-tag">Nightlife</span>
+                    </div>
+                    
+                    <div class="vibe-section">
+                        <h4>The Vibe</h4>
+                        <div class="vibe-item">
+                            <span>🍽️</span>
+                            <div>Rooftop dining with mountain views, authentic street foods, trendy Poblado scene</div>
+                        </div>
+                        <div class="vibe-item">
+                            <span>📸</span>
+                            <div>Comuna 13 street art, Guatapé day trip, infinity pools with views</div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-buttons">
+                        <button class="details-btn" onclick="showDetails('medellin', event)">Details</button>
+                        <button class="budget-btn" onclick="showBudget('medellin', event)">Budget</button>
+                       
+                    </div>
+                </div>
+            </div>
+            
+            <!-- LIMA -->
+            <div class="card" data-city="lima">
+                <div class="select-badge">✓ Selected</div>
+                <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('https://i.imgur.com/ZM4KHJ3.jpeg');">
+                    <div class="weekend-badge">Memorial Day</div>
+                </div>
+                <div class="card-content">
+                    <h2>Lima + Coast</h2>
+                    <h3>Peru</h3>
+                    <p>Top-tier food scene, beaches, and desert adventures.</p>
+                    
+                    <div class="highlights">
+                        <span class="highlight-tag">World-Class Food</span>
+                        <span class="highlight-tag">Beach Clubs</span>
+                        <span class="highlight-tag">Desert Oasis</span>
+                    </div>
+                    
+                    <div class="vibe-section">
+                        <h4>The Vibe</h4>
+                        <div class="vibe-item">
+                            <span>🍽️</span>
+                            <div>Multiple top 50 restaurants, ceviche everywhere, pisco sours</div>
+                        </div>
+                        <div class="vibe-item">
+                            <span>📸</span>
+                            <div>Coastal cliffs, Huacachina oasis, colorful Barranco neighborhood</div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-buttons">
+                        <button class="details-btn" onclick="showDetails('lima', event)">Details</button>
+                        <button class="budget-btn" onclick="showBudget('lima', event)">Budget</button>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- BUENOS AIRES -->
+            <div class="card" data-city="buenosaires">
+                <div class="select-badge">✓ Selected</div>
+                <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('https://i.imgur.com/hRPnjIH.jpeg');">
+                    <div class="weekend-badge">Flexible Dates</div>
+                </div>
+                <div class="card-content">
+                    <h2>Buenos Aires</h2>
+                    <h3>Argentina</h3>
+                    <p>European elegance meets Latin passion. Tango in the streets, wine on rooftops, beach towns nearby.</p>
+                    
+                    <div class="highlights">
+                        <span class="highlight-tag">Paris of SA</span>
+                        <span class="highlight-tag">Wine Country</span>
+                        <span class="highlight-tag">Beach Escape Option</span>
+                    </div>
+                    
+                    <div class="vibe-section">
+                        <h4>The Vibe</h4>
+                        <div class="vibe-item">
+                            <span>🍽️</span>
+                            <div>World-class steak and Malbec, rooftop wine bars, empanadas at 2am, YERRRR</div>
+                        </div>
+                        <div class="vibe-item">
+                            <span>📸</span>
+                            <div>Colorful La Boca, tango in San Telmo, Recoleta vibes</div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-buttons">
+                        <button class="details-btn" onclick="showDetails('buenosaires', event)">Details</button>
+                        <button class="budget-btn" onclick="showBudget('buenosaires', event)">Budget</button>
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="selection-section">
+            <h3>Ready to Choose?</h3>
+            <p>Click on your favorite destination above to select it, then hit submit!</p>
+            <button class="submit-btn" id="submitBtn" onclick="submitChoice()">Submit My Choice!</button>
+            <p class="note" style="font-size: 0.75em;">*If these weekends/destinations don't work, we'll figure it out. We'll split hotels, transport, and other costs once we get a spot picked.*</p>
+        </div>
+        
+        <!-- PACKING LIST (appears after submission) -->
+        <div class="packing-list" id="packingList">
+    <h3 id="packingTitle">🧳 Aight, BET! We're going somewhere!</h3>
+    
+    <!-- CARTAGENA PACKING -->
+    <div class="city-packing" id="packing-cartagena" style="display: none;">
+        <div class="packing-category">
+            <h4>🏖️ Beach Club Ready</h4>
+            <ul>
+                <li>42+ swimsuits (you know we need options)</li>
+                <li>Fly cover-ups, sundresses, and booty shawts</li>
+                <li>Sandals for day, heels for rooftop bars</li>
+                <li>Big sunglasses and a beach hat</li>
+            </ul>
+        </div>
+        
+        <div class="packing-category">
+            <h4>📋 Don't Forget</h4>
+            <ul>
+                <li>Passport (check it's not expired!)</li>
+                <li>Phone charger + portable charger</li>
+                <li>SPF 50+</li>
+                <li>The full glam routine</li>
+                <li>Backup credit card(s)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- MEDELLIN PACKING -->
+    <div class="city-packing" id="packing-medellin" style="display: none;">
+        <div class="packing-category">
+            <h4>🏔️ Mountain City Layers</h4>
+            <ul>
+                <li>Light jackets for the cool mornings</li>
+                <li>Comfy walking shoes (hills everywhere)</li>
+                <li>Day trip bag for Guatapé</li>
+                <li>Going out fits for Poblado nightlife</li>
+            </ul>
+        </div>
+        
+        <div class="packing-category">
+            <h4>📋 Don't Forget</h4>
+            <ul>
+                <li>Passport (check it's not expired!)</li>
+                <li>Phone charger + portable charger</li>
+                <li>SPF 50+</li>
+                <li>The full glam routine</li>
+                <li>Backup credit card(s)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- LIMA PACKING -->
+    <div class="city-packing" id="packing-lima" style="display: none;">
+        <div class="packing-category">
+            <h4>🏜️ Beach + Desert Mode</h4>
+            <ul>
+                <li>Swimsuits for the beaches</li>
+                <li>Bad bitch attire for the sand dunes in Huacachina</li>
+                <li>Scarf or bandana for sandboarding</li>
+                <li>Light jacket for coastal nights</li>
+            </ul>
+        </div>
+        
+        <div class="packing-category">
+            <h4>📋 Don't Forget</h4>
+            <ul>
+                <li>Passport (check it's not expired!)</li>
+                <li>Phone charger + portable charger</li>
+                <li>SPF 50+</li>
+                <li>The full glam routine</li>
+                <li>Backup credit card(s)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- BUENOS AIRES PACKING -->
+    <div class="city-packing" id="packing-buenosaires" style="display: none;">
+        <div class="packing-category">
+            <h4>✨ European Chic</h4>
+            <ul>
+                <li>All 3 weeks worth of outfits you'll buy</li>
+                <li>Comfy walking shoes (you'll walk everywhere)</li>
+                <li>Heels for tango shows and wine bars</li>
+                <li>Light layers (weather can shift)</li>
+            </ul>
+        </div>
+        
+        <div class="packing-category">
+            <h4>📋 Don't Forget</h4>
+            <ul>
+                <li>Passport (check it's not expired!)</li>
+                <li>Phone charger + portable charger</li>
+                <li>SPF 50+</li>
+                <li>The full glam routine</li>
+                <li>Backup credit card(s)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    </div>
+<!-- INDECISIVE TOAST -->
+<div class="indecisive-toast" id="indecisiveToast">
+    <button class="close-toast" onclick="closeToast()">×</button>
+    <p>Oh, so you indecisive? 👀<br>FYI - You picked <strong id="previousCityToast"></strong> last time!</p>
+</div>
+
+    <!-- CONFIRMATION MODAL -->
+<div class="confirmation-modal" id="confirmationModal">
+    <div class="confirmation-content">
+        <h2>Perfect! </h2>
+        <p>You picked <span class="city-name" id="selectedCityName"></span>!</p>
+        <p style="font-size: 1em; color: #999;">Let's get ready & get packing!</p>
+        <button class="confirmation-btn" onclick="closeConfirmation()">Let's Go!</button>
+    </div>
+</div>
+
+    <!-- MODAL FOR DETAILS AND BUDGET -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">×</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+    
+    <script>
+        const budgets = {
+            cartagena: {
+                hotel: "$120-200/night",
+                food: "$50-80/day",
+                activities: "$100-200 total",
+                transportation: "$40 total",
+                total: "$550-850 for 4 days"
+            },
+            medellin: {
+                hotel: "$90-180/night",
+                food: "$40-70/day", 
+                activities: "$100-150 total",
+                transportation: "$35 total",
+                total: "$450-750 for 4 days"
+            },
+            lima: {
+                hotel: "$110-200/night",
+                food: "$60-100/day",
+                activities: "$150-250 total",
+                transportation: "$80 total (includes bus to coast)",
+                total: "$650-1000 for 4 days"
+            },
+            buenosaires: {
+                hotel: "$120-220/night",
+                food: "$50-90/day",
+                activities: "$100-200 total",
+                transportation: "$45 total",
+                total: "$600-950 for 4 days"
+            }
+        };
+        
+        const details = {
+            cartagena: {
+                title: "Cartagena, Colombia",
+                weekend: "Memorial Day Weekend (May 22-26)",
+                why: "Perfect timing before rainy season, ideal beach weather",
+                sections: [
+                    {
+                        title: "The <em>Viiiibes</em>",
+                        class: "",  // sparkles (default)
+                        items: [
+                            "Perfect 80-degree beach weather & low humidity in May",
+                            "Direct flights from Houston (~5hrs)",
+                            "Beach club islands, waterfront dining, shopping all in 1 spot",
+                            "Throwin' ass in rooftop infinity pools"
+                        ]
+                    },
+                    {
+                        title: "Some Inspo",
+                        class: "inspo",  // camera emoji
+                        items: [
+                            "<a href='https://www.tiktok.com/t/ZP893V9WH/' target='_blank'>Palenque - Afro-Colombian village experience</a>",
+                            "<a href='https://www.tiktok.com/t/ZP893t9kA/' target='_blank'>Getsemaní neighborhood - day and night vibes</a>",
+                            "<a href='https://www.tiktok.com/t/ZP89TkDXX/' target='_blank'>Rooftop salsa class overlooking the old city</a>",
+                            "<a href='https://www.tiktok.com/t/ZP89TMcVM/' target='_blank'>Walk the walled city</a> or <a href='https://www.instagram.com/reel/DLiKOR0JuE9' target='_blank'>enjoy the center</a>",
+                            "<a href='https://www.tiktok.com/t/ZP89TkNMe/' target='_blank'>Private boat to Rosario Islands for day trip & lunch</a>"
+                        ]
+                    }
+                ]
+            },
+            medellin: {
+                title: "Medellín, Colombia",
+                weekend: "May, June, July -- whenever!",
+                why: "Perfect weather year-round, flexible timing",
+                sections: [
+                    {
+                        title: "The <em>Viiiibes</em>",
+                        class: "",  // sparkles (default)
+                        items: [
+                            "70s-80s literally all year (city of eternal spring)",
+                            "Direct or easy connection from Houston",
+                            "Most affordable option",
+                            "Rooftop infinity pools with mountain views everywhere"
+                        ]
+                    },
+                    {
+                        title: "Some Inspo",
+                        class: "inspo",  // camera emoji
+                        items: [
+                            "<a href='https://www.tiktok.com/t/ZP89T9M63/' target='_blank'>Guatapé day trip - climb the rock, boat on the lake</a>",
+                            "<a href='https://www.tiktok.com/t/ZP89T29KV/' target='_blank'>Comuna 13 escalators and street art</a>",
+                            "<a href='https://www.tiktok.com/t/ZP89Taf7E/' target='_blank'>Rooftop pools with panoramic mountain views</a>",
+                            "<a href='https://www.tiktok.com/t/ZP89T69NJ/' target='_blank'>Turn up Medellín-style</a> "
+                        ]
+                    }
+                ]
+            },
+            lima: {
+                title: "Lima + Peruvian Coast",
+                weekend: "Memorial Day Weekend (May 22-26)",
+                why: "World-class food scene in paradise",
+                sections: [
+                    {
+                        title: "The <em>Viiiiiibes</em>",
+                        class: "",
+                        items: [
+                            "Lima is THE food capital of South America",
+                            "3-4hr bus to Paracas/Huacachina (stay overnight there)",
+                            "Most varied experience - city, beach, desert oasis",
+                            "Mild autumn weather in May"
+                        ]
+                    },
+                    {
+                        title: "Some Inspo",
+                        class: "inspo",
+                        items: [
+                            "<a href='https://www.tiktok.com/t/ZP89T2JhR/' target='_blank'>Barranco neighborhood - colorful streets and art</a>",
+                            "<a href='https://www.tiktok.com/t/ZP89TDwyt/' target='_blank'>Huacachina desert oasis - sandboarding</a> | <a href='https://www.tiktok.com/t/ZP89TMGsb/' target'=_blank'>2</a>",
+                            "<a href='https://www.tiktok.com/t/ZP89T6adB/' target='_blank'>Paracas beach clubs and coastal cliffs</a>"
+                        ]
+                    }
+                ]
+            },
+            buenosaires: {
+                title: "Buenos Aires, Argentina",
+                weekend: "Late Spring or Fall",
+                why: "European elegance meets Latin passion",
+                sections: [
+                    {
+                        title: "The <em>Viiiiiibes</em>",
+                        class: "",
+                        items: [
+                            "Paris of South America -- Euro vibes w/o the flight",
+                            "May/Sept are fall/spring -- perfect mild temps",
+                            "Could add day trip to Colonia, Uruguay (1hr ferry) if you want",
+                            "US dollar goes far here",
+                            "Plenty to do in 4 days without even leaving the city"
+                        ]
+                    },
+                    {
+                        title: "Some Inspo",
+                        class: "inspo",
+                        items: [
+                            "<a href='https://www.tiktok.com/t/ZP89T6LjW/' target='_blank'>La Boca -- colorful houses and street tango</a>",
+                            "<a href='https://www.tiktok.com/t/ZP89TBjrc/' target='_blank'>San Telmo Sunday market</a>",
+                            "<a href='https://www.tiktok.com/t/ZP89T6mUX/' target='_blank'>Tango shows, Evita's tomb, so much more!</a>",
+                            "<a href='https://www.tiktok.com/t/ZP89T5xqA/' target='_blank'>Luxurious train ride through Peru</a>",
+                            "<a href='https://www.tiktok.com/t/ZP89TDYHS/' target='_blank'>Optional: Day trip to Colonia, Uruguay (1hr ferry)</a>"
+                        ]
+                    }
+                ]
+            }
+        };
+        
+        let selectedCity = null;
+        
+        // Make cards selectable
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', function(e) {
+        // Don't select if clicking a button
+        if (e.target.tagName === 'BUTTON') {
+            return;
+        }
+        
+        // Create floating hearts
+        createHeart(e.pageX, e.pageY);
+        
+        // If clicking the already selected card, deselect it
+        if (this.classList.contains('selected')) {
+            this.classList.remove('selected');
+            selectedCity = null;
+            document.getElementById('submitBtn').classList.remove('show');
+            document.getElementById('packingList').classList.remove('show');
+            document.getElementById('indecisiveToast').classList.remove('show');
+            return;
+        }
+        
+        // Remove selection from all cards
+        document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
+        
+        // Select this card
+        this.classList.add('selected');
+        selectedCity = this.dataset.city;
+        
+        // Show submit button
+        document.getElementById('submitBtn').classList.add('show');
+
+        // Re-enable submit button when changing selection
+const submitBtn = document.getElementById('submitBtn');
+submitBtn.disabled = false;
+submitBtn.textContent = 'Submit My Choice!';
+submitBtn.style.opacity = '1';
+submitBtn.style.cursor = 'pointer';
+
+        // Gently scroll to submit button
+setTimeout(() => {
+    document.getElementById('submitBtn').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}, 300);
+        
+        // Show indecisive toast if she's changing after already submitting
+const hasSubmitted = sessionStorage.getItem('hasSubmitted');
+const savedCity = localStorage.getItem('selectedCity');
+
+if (hasSubmitted && savedCity && savedCity !== this.dataset.city) {
+    const savedCityName = localStorage.getItem('selectedCityName');
+    document.getElementById('previousCityToast').textContent = savedCityName;
+    document.getElementById('indecisiveToast').classList.add('show');
+    console.log('SHOWING TOAST');
+} else {
+    document.getElementById('indecisiveToast').classList.remove('show');
+    console.log('HIDING TOAST', hasSubmitted, savedCity, this.dataset.city);
+}
+    });
+});  
+        function showDetails(city, event) {
+            event.stopPropagation();
+            const data = details[city];
+            let html = `
+                <h2>${data.title}</h2>
+                <p style="color: #ff69b4; font-size: 1.1em; margin-bottom: 10px;"><strong>${data.weekend}</strong></p>
+                <p style="color: #666; margin-bottom: 30px; font-style: italic;">${data.why}</p>
+            `;
+            
+            data.sections.forEach(section => {
+                const sectionClass = section.class || '';
+html += `
+    <div class="modal-section ${sectionClass}">
+        <h4>${section.title}</h4>
+                        <ul>
+                            ${section.items.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('modal-body').innerHTML = html;
+            document.getElementById('modal').classList.add('active');
+        }
+        
+        function showBudget(city, event) {
+            event.stopPropagation();
+            const budget = budgets[city];
+            const cityName = details[city].title;
+            
+            let html = `
+                <h2>${cityName}</h2>
+                <h3 style="color: #666; margin-bottom: 20px;">Estimated Budget Breakdown</h3>
+                <div class="budget-info">
+                    <div class="budget-item">
+                        <span>Hotel (3-4 nights)</span>
+                        <span>${budget.hotel}</span>
+                    </div>
+                    <div class="budget-item">
+                        <span>Food & Drinks</span>
+                        <span>${budget.food}</span>
+                    </div>
+                    <div class="budget-item">
+                        <span>Activities & Tours</span>
+                        <span>${budget.activities}</span>
+                    </div>
+                    <div class="budget-item">
+                        <span>Local Transportation</span>
+                        <span>${budget.transportation}</span>
+                    </div>
+                    <div class="budget-item">
+                        <span>Total Estimate</span>
+                        <span>${budget.total}</span>
+                    </div>
+                </div>
+                <p style="color: #999; font-size: 0.9em; margin-top: 20px; font-style: italic;">
+                    *Remember: Flights + one special experience are covered! We'll split the rest.
+                </p>
+            `;
+            
+            document.getElementById('modal-body').innerHTML = html;
+            document.getElementById('modal').classList.add('active');
+        }
+        
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+        
+       function submitChoice() {
+    if (!selectedCity) {
+        alert('Please select a destination first! 💕');
+        return;
+    }
+    
+    // Get the selected city details
+    const cityName = details[selectedCity].title;
+    const weekend = details[selectedCity].weekend;
+    
+    // Save to localStorage
+    localStorage.setItem('selectedCity', selectedCity);
+    localStorage.setItem('selectedCityName', cityName);
+    localStorage.setItem('selectedWeekend', weekend);
+    
+    // Mark that she's submitted once this session
+    sessionStorage.setItem('hasSubmitted', 'true');
+    
+    // FORMSPREE COMMENTED OUT FOR TESTING
+    /*
+    fetch('https://formspree.io/f/xkovrjeo', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            destination: cityName,
+            weekend: weekend,
+            message: `She picked ${cityName} for ${weekend}!`
+        })
+    })
+    .then(response => {
+        if (response.ok) {
+    */
+    
+    // Update packing list title
+    const cityNameShort = selectedCity.charAt(0).toUpperCase() + selectedCity.slice(1);
+    document.getElementById('packingTitle').textContent = `Aight, BET! We're going to ${cityNameShort}!`;
+    
+    // Hide all city packing lists
+    document.querySelectorAll('.city-packing').forEach(pack => {
+        pack.style.display = 'none';
+    });
+    
+// Show the selected city's packing list
+document.getElementById(`packing-${selectedCity}`).style.display = 'block';
+
+// Create hearts BEFORE modal appears
+createHeart(window.innerWidth / 2, window.innerHeight / 2);
+setTimeout(() => createHeart(window.innerWidth / 2 + 50, window.innerHeight / 2 - 30), 100);
+setTimeout(() => createHeart(window.innerWidth / 2 - 50, window.innerHeight / 2 + 20), 200);
+    
+// Show custom confirmation modal (delayed so hearts can start floating)
+setTimeout(() => {
+    document.getElementById('selectedCityName').textContent = cityName;
+    document.getElementById('confirmationModal').classList.add('active');
+}, 300);
+    
+   // Disable submit button after submission
+const submitBtn = document.getElementById('submitBtn');
+submitBtn.disabled = true;
+submitBtn.textContent = 'Already Submitted! ✓';
+submitBtn.style.opacity = '0.6';
+submitBtn.style.cursor = 'not-allowed';
+    
+    // Show packing list
+    document.getElementById('packingList').classList.add('show');
+    
+    /*
+        } else {
+            alert('Oops, something went wrong! Try again or just text me your choice 💕');
+        }
+    })
+    .catch(error => {
+        alert('Oops, something went wrong! Try again or just text me your choice 💕');
+    });
+    */
+}
+
+function closeConfirmation() {
+    document.getElementById('indecisiveToast').classList.remove('show');
+    document.getElementById('confirmationModal').classList.remove('active');
+    
+    // Scroll to packing list
+    setTimeout(() => {
+        document.getElementById('packingList').scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+}
+function closeToast() {
+    document.getElementById('indecisiveToast').classList.remove('show');
+}
+function createHeart(x, y) {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.textContent = '💕';
+    heart.style.left = x + 'px';
+    heart.style.top = y + 'px';
+    document.body.appendChild(heart);
+    
+    setTimeout(() => {
+        heart.remove();
+    }, 1500);
+}
+      
+        // Close modal when clicking outside
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    
+        // Show indecisive toast on page load if there's a saved choice
+window.addEventListener('load', function() {
+    const savedCity = localStorage.getItem('selectedCity');
+    const savedCityName = localStorage.getItem('selectedCityName');
+    
+    if (savedCity && savedCityName) {
+        document.getElementById('previousCityToast').textContent = savedCityName;
+        // Delay toast slightly so slide-in animation is visible
+        setTimeout(() => {
+            document.getElementById('indecisiveToast').classList.add('show');
+        }, 500);
+    }
+});
+    </script>
+</body>
+</html>
